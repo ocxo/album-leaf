@@ -15,7 +15,7 @@ Dir.glob('*/*/*') do |file|
   puts "File Type: #{file_type}"
 
 
-  if file_type.include?('jpeg')
+  if file_type.include?('jpeg') or file.end_with?('heic')
     jpeg = EXIFR::JPEG.new(file)
     if jpeg.exif? and jpeg.date_time
       exif_date = jpeg.date_time
